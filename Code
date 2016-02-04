@@ -1,0 +1,17 @@
+string date;
+default
+{
+    state_entry()
+    {
+        llSetText("Click to be told time and date", <1.0, 1.0, 1.0>, 1.0);
+    }
+    touch_start (integer num)
+    {
+        date = llGetDate();
+        integer now = (integer)llGetWallclock();
+        integer seconds = now % 60;
+        integer minutes = (now / 60) % 60;
+        integer hours = now / 3600;
+        llSay(0, "It is now " + hours + " " + minutes + " " + seconds + " PST on " + date);
+    }
+}
